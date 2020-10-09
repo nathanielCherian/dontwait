@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>{{ court.name }} | dontwait </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    </head>
+
+    <body>
+
+        {% if not court.occupied %}
+        <h1>Are you playing at {{court.name}}?</h1>
+
+
+        <input id="time" type="number" max="{{ court.maxtime }}" value="60">
+        <button id="book-button">Confirm!</button>
+
+
+        {% else %}
+        <h1>Whoops, this court is already in play!</h1>
+        {% endif %}
+
+
+
+
+
+
+
+    </body>
+
+    <script>
+    
+        const http = new XMLHttpRequest();
+        const url = window.location.origin + "{% url 'cclaim_api' court.slug %}";
+        console.log(url);
+
+
+        $('#book-button').click(function(){
+
+            const time = $("#time").val()
+
+            $.post(url,
+                {
+                    "time":time
+                }
+            )
+
+        });
+
+
+        /*
+        http.open("GET", url);
+        http.send();
+
+        http.onreadystatechange = (e) =>{
+            console.log(http.responseText)
+        }*/
+
+    </script>
+
+
+</html>
