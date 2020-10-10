@@ -27,15 +27,23 @@
 
         </div>
 
+        <div class="row justify-content-center" style="padding-top: 3%;">
+            <h3 id="date-left">{{ court.booked }}</h3>
+        </div>
+
     </div>
 
     <script>
 
-        var booked_time = new Date("{{ court.get_unix }}").getTime();
+
+
+        var booked_time = new Date("{{ court.get_unix }}");
+
+        var local_date = new Date(booked_time.getTime());
+        $("#date-left").text(local_date.toString());
 
         console.log(booked_time)
 
-        booked_time -= 50000
 
         var x = setInterval(function() {
 
@@ -59,11 +67,13 @@
             }
 
             $("#time-left").text(String(minutes)+" : "+String(seconds))
-            
+
             if(countdown < 1){
                 console.log("tri")
                 clearInterval(x)
                 $("#time-left").text("Not Currently in Play 🙌")
+                $("#date-left").text("")
+
             }
 
 

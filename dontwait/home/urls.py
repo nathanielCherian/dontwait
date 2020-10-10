@@ -18,3 +18,5 @@ if DEBUG:
     urlpatterns+= [
         path("<slug:court_slug>/reset", views.reset_time, name="reset"),
     ]
+
+handler404 = views.handler404

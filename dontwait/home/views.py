@@ -42,3 +42,7 @@ def reset_time(request, court_slug):
     court.save()
     print("time reset!")
     return HttpResponse("Time reset!")
+
+
+def handler404(request, exception):
+    return render(request, '404.html', status=404)

@@ -28,5 +28,4 @@ class Court(models.Model):
 
 
     def get_unix(self):
-        print(self.booked)
         return str(self.booked)
