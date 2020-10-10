@@ -7,27 +7,35 @@
 
         <div class="container-fluid page">
 
-            <div class="row justify-content-center" style="padding: 20%;">
 
 
                 <div id="user-input">
 
-                    {% if not court.occupied %}
-                    <h1>Are you playing at {{court.name}}?</h1>
-            
-                    <input id="time" type="number" max="{{ court.maxtime }}" value="60">
-                    <button id="book-button">Confirm!</button>
-            
-                    {% else %}
+                    <div class="row justify-content-center" style="padding: 20%;">
 
-                    <h1>Whoops, this court is already in play!</h1>
-                    {% endif %}
+                        {% if not court.occupied %}
+                    
+                        <h1>Are you playing at {{court.name}}?</h1>
+                
+                        <div class="row justify-content-center">
+                            <input id="time" type="number" max="{{ court.maxtime }}" value="60">
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <button id="book-button">Confirm!</button>
+                        </div>
+                
+                        {% else %}
+
+                        <h1>Whoops, this court is already in play!</h1>
+                        <div class="row justify-content-center">
+                            <a>Find an empty one</a>
+                        </div>
+                        {% endif %}
         
+                    </div>
+
                 </div>
-
-
-
-            </div>
 
         </div>
 
@@ -35,13 +43,19 @@
 
 
         <div id="success">
-            <h1>Thanks for your input! 😊</h1>
+            <div class="row justify-content-center" style="padding: 20%;">
+
+                <h1>Thanks for your input! 😊</h1>
+
+            </div>
 
             <div class="row justify-content-center">
                 <a>What's dontwait?</a>
             </div>
 
         </div>
+
+
 
 
 
@@ -90,6 +104,8 @@
         #success{
             display: none;
         }
+
+
 
     </style>
 
