@@ -1,11 +1,95 @@
-<html>
-    <head>
-        <title>{{ court.name}} | dontwait</title>
-    </head>
+{% extends "base.html" %}
+{% load static %}
 
-    <body>
+{% block content %}
 
-        <h1>{{ court.name }} @ {{ court.adress }}</h1>
 
-    </body>
-</html>
+<div class="container-fluid" style="padding: 10%; padding-bottom: 0;">
+
+    <div class="row justify-content-center">
+        <h2>{{ court.name }}</h2>
+    </div>
+
+    <div class="row justify-content-center">
+        <a href=" http://maps.google.com/?q={{court.adress}}" target="_blank"><h3>Directions</h3></a>
+    </div>
+
+</div>
+
+
+{% if court.occupied %}
+
+    <div class="container-fluid" style="padding: 5%;">
+
+        <div class="row justify-content-center">
+
+            <h1 id="time-left"></h1>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var booked_time = new Date("{{ court.get_unix }}").getTime();
+
+        console.log(booked_time)
+
+        booked_time -= 50000
+
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+            var countdown = (booked_time - now)/1000;
+
+
+
+
+            var minutes = Math.floor(countdown/60);
+            countdown -= minutes*60;
+            var seconds = Math.floor(countdown)
+            
+            if(seconds < 10){
+                seconds = "0"+String(seconds);
+            }
+
+            if(minutes < 10){
+                minutes = "0"+String(minutes);
+
+            }
+
+            $("#time-left").text(String(minutes)+" : "+String(seconds))
+            
+            if(countdown < 1){
+                console.log("tri")
+                clearInterval(x)
+                $("#time-left").text("Not Currently in Play 🙌")
+            }
+
+
+
+        }, 1000)
+
+
+    </script>
+
+
+
+{% else %}
+
+<div class="container-fluid" style="padding: 5%;">
+
+    <div class="row justify-content-center">
+
+        <h3>Not Currently in Play 🙌</h3>
+
+    </div>
+
+</div>
+
+   
+{% endif %}
+
+
+
+{% endblock %}

@@ -25,3 +25,8 @@ class Court(models.Model):
             #print(self.booked, timezone.now())
             return False
         return True
+
+
+    def get_unix(self):
+        print(self.booked)
+        return str(self.booked)

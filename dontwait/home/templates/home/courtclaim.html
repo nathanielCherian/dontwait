@@ -18,7 +18,7 @@
                         <h1>Are you playing at {{court.name}}?</h1>
                 
                         <div class="row justify-content-center">
-                            <input id="time" type="number" max="{{ court.maxtime }}" value="60">
+                            <input id="time" type="number" max="{{ court.maxtime }}" value="60" inputmode="numeric" title="max time: {{ court.maxtime }}">
                         </div>
 
                         <div class="row justify-content-center">
