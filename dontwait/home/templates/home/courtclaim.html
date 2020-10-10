@@ -1,23 +1,47 @@
-<html>
-    <head>
-        <title>{{ court.name }} | dontwait </title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-
-    </head>
-
-    <body>
-
-        {% if not court.occupied %}
-        <h1>Are you playing at {{court.name}}?</h1>
+{% extends "base.html" %}
+{% load static %}
 
 
-        <input id="time" type="number" max="{{ court.maxtime }}" value="60">
-        <button id="book-button">Confirm!</button>
+{% block content %}
 
 
-        {% else %}
-        <h1>Whoops, this court is already in play!</h1>
-        {% endif %}
+        <div class="container-fluid page">
+
+            <div class="row justify-content-center" style="padding: 20%;">
+
+
+                <div id="user-input">
+
+                    {% if not court.occupied %}
+                    <h1>Are you playing at {{court.name}}?</h1>
+            
+                    <input id="time" type="number" max="{{ court.maxtime }}" value="60">
+                    <button id="book-button">Confirm!</button>
+            
+                    {% else %}
+
+                    <h1>Whoops, this court is already in play!</h1>
+                    {% endif %}
+        
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+        <div id="success">
+            <h1>Thanks for your input! 😊</h1>
+
+            <div class="row justify-content-center">
+                <a>What's dontwait?</a>
+            </div>
+
+        </div>
 
 
 
@@ -25,7 +49,6 @@
 
 
 
-    </body>
 
     <script>
     
@@ -41,21 +64,34 @@
             $.post(url,
                 {
                     "time":time
+                },
+                function(data, status, xhr) {
+                    console.log(status)
+                    console.log(data.status)
+
+                    if(data.status == 200){
+                        $("#user-input").replaceWith($("#success"))
+                        $("#success").show()
+                    }
+
                 }
             )
 
         });
 
 
-        /*
-        http.open("GET", url);
-        http.send();
 
-        http.onreadystatechange = (e) =>{
-            console.log(http.responseText)
-        }*/
 
     </script>
 
 
-</html>
+    <style>
+
+        #success{
+            display: none;
+        }
+
+    </style>
+
+
+{% endblock %}

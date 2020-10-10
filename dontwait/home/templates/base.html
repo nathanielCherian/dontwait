@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+
+    <head>
+        <title>dontwait</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    </head>
+
+    <body>
+
+
+        {% block content %}
+    
+    
+        {% endblock %}
+
+
+
+    </body>
+
+
+    <style>
+
+        @font-face{
+            font-family: gilroy;
+            src: url("{% static 'home/fonts/Gilroy-Bold.woff' %}");
+        }
+
+
+
+        h1{
+            font-size: 4em;
+        }
+
+
+        body{
+            animation: bg-animation 10s infinite;
+            color: white;
+            font-family: gilroy;
+        }
+
+        @-webkit-keyframes bg-animation {
+
+        }
+
+        @keyframes bg-animation {
+            0% {
+                background-color: #EC9F20;
+            }
+            25% {
+                background-color: #7B9BAC;
+            }
+            50% {
+                background-color: #9C4549;
+            }
+            75% {
+                background-color: #212838;
+            }
+            100% {
+                background-color: #EC9F20;
+            }
+
+        }
+
+
+    </style>
+
+</html>

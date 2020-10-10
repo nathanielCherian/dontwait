@@ -29,10 +29,11 @@ def court_claim_api(request, court_slug):
         time = int(data['time'])
         time = time if time <= court.maxtime else court.maxtime
         print(time)
-        court.booked = court.booked + timedelta(minutes=time)
+        court.booked = timezone.now() + timedelta(minutes=time)
         court.save()
-
-    return HttpResponse(json.dumps({"success":True}), content_type="application/json")
+        return HttpResponse(json.dumps({"status":200}), content_type="application/json")
+    else:
+        return HttpResponse(json.dumps({"status":204}), content_type="application/json")
 
 
 def reset_time(request, court_slug):
