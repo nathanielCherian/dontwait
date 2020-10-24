@@ -4,7 +4,6 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-DEBUG = True
 
 urlpatterns = [
     path("", views.home, name="home"),
@@ -15,7 +14,8 @@ urlpatterns = [
     path("<slug:court_slug>/claim/api", views.court_claim_api, name="cclaim_api")
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-if DEBUG:
+
+if settings.DEBUG:
     urlpatterns+= [
         path("<slug:court_slug>/reset", views.reset_time, name="reset"),
     ]
