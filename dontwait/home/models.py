@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+import datetime
+
 class Court(models.Model):
     name = models.CharField(max_length=200)
 
@@ -28,4 +30,4 @@ class Court(models.Model):
 
 
     def get_unix(self):
-        return str(self.booked)
+        return int(self.booked.timestamp())

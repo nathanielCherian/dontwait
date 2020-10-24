@@ -37,25 +37,27 @@
 
 
 
-        var booked_time = new Date("{{ court.get_unix }}");
+        var timestamp = parseInt("{{ court.get_unix }}")*1000; //Time in miliseconds
+        var booked_time = new Date(timestamp);
+        console.log(timestamp)
+        console.log(booked_time)
 
         var local_date = new Date(booked_time.getTime());
         $("#date-left").text(local_date.toString());
 
-        console.log(booked_time)
 
 
         var x = setInterval(function() {
 
             var now = new Date().getTime();
-            var countdown = (booked_time - now)/1000;
+            var countdown = parseInt((booked_time - now)/1000);
 
+            console.log(countdown)
             if(countdown < 1){
-                console.log("tri")
-                clearInterval(x)
                 $("#time-left").text("Not Currently in Play 🙌")
                 $("#date-left").text("")
-
+                console.log("done!")
+                clearInterval(x)
             }
 
 
@@ -79,6 +81,10 @@
 
 
         }, 1000)
+
+
+
+
 
 
     </script>
