@@ -8,6 +8,7 @@ DEBUG = True
 
 urlpatterns = [
     path("", views.home, name="home"),
+    path("about/", views.about, name="about"),
 
     path("<slug:court_slug>", views.court_home, name="chome"),
     path("<slug:court_slug>/claim", views.court_claim, name="cclaim"),

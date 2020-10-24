@@ -50,7 +50,13 @@
             var now = new Date().getTime();
             var countdown = (booked_time - now)/1000;
 
+            if(countdown < 1){
+                console.log("tri")
+                clearInterval(x)
+                $("#time-left").text("Not Currently in Play 🙌")
+                $("#date-left").text("")
 
+            }
 
 
             var minutes = Math.floor(countdown/60);
@@ -68,13 +74,7 @@
 
             $("#time-left").text(String(minutes)+" : "+String(seconds))
 
-            if(countdown < 1){
-                console.log("tri")
-                clearInterval(x)
-                $("#time-left").text("Not Currently in Play 🙌")
-                $("#date-left").text("")
 
-            }
 
 
 

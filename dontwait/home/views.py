@@ -11,6 +11,9 @@ from .models import Court
 def home(request):
     return render(request, 'home/home.html')
 
+def about(request):
+    return render(request, "home/about.html")
+
 def court_home(request, court_slug):
     court = get_object_or_404(Court, slug=court_slug)
     return render(request, 'home/courthome.html', {"court":court})
