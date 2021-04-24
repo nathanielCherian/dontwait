@@ -14,6 +14,9 @@ def home(request):
 def about(request):
     return render(request, "home/about.html")
 
+def sticker(request):
+    return render(request, "sticker.html")
+
 def court_home(request, court_slug):
     court = get_object_or_404(Court, slug=court_slug)
     return render(request, 'home/courthome.html', {"court":court})

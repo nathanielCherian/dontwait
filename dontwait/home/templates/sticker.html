@@ -1,0 +1,53 @@
+{% load static %}
+
+<html>
+
+    <head>
+        <title>sticker</title>
+    </head>
+
+    <body>
+
+
+        <div class="container-fluid page" style="padding: 20%; padding-bottom: 0;">
+
+            <div class="row justify-content-center" style="text-align: center;">
+                <h1>Started Playing?</h1>
+            </div>
+
+            <div class="row justify-content-center" style="text-align: center;">
+                <img src="{% static 'home/qr/102.svg' %}" width="250px" height="250px">
+            </div>
+
+            <div class="row justify-content-center" style="text-align: center;">
+                <h3>Point your camera here to hold the court</h3>
+            </div>
+
+            <div class="row justify-content-center" style="text-align: center;">
+                <h3><i> The dontwait Project </i></h3>
+            </div>
+
+        </div>
+
+
+
+        <style>
+            @font-face{
+                font-family: gilroy;
+                src: url("{% static 'home/fonts/Gilroy-Bold.woff' %}");
+            }
+
+    
+            body{
+                font-family: gilroy;
+            }
+
+            h1{
+                font-size: 3rem;
+            }
+
+        </style>
+    </body>
+
+
+</html>

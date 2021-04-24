@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils import timezone
 
-import datetime
-
 class Court(models.Model):
     name = models.CharField(max_length=200)
 
