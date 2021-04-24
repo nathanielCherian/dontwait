@@ -25,11 +25,11 @@
                 var now = new Date().getTime();
                 var countdown = parseInt((booked_time - now)/1000);
     
-                console.log(countdown)
+                //console.log(countdown)
                 if(countdown < 1){
                     $("#time-left").text("Not Currently in Play 🙌")
                     $("#date-left").text("")
-                    console.log("done!")
+                    //console.log("done!")
                     clearInterval(x)
                 }
     

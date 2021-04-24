@@ -1,132 +1,153 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dontwait</title>
 
-    <head>
-        <title>dontwait</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    </head>
-
-    <body>
-
-
-        <div class="flex-column">
-            <nav class="nav">
-                <a href="/" id="home-text" class="nav-item__right"><h3 class="no-space">dontwait.</h3></a>
-            </nav>
-        
-            {% block content %}
-        
-        
-            {% endblock %}
-
-
-            <footer class="footer">
-                <p><small>© 2021 DontWait</small></p>
-            </footer>
-
-        </div>
- 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <div class="flex-column">
+        <nav class="nav">
+            <a href="/" id="home-text" class="nav-item__right"><h3 class="no-space">dontwait.</h3></a>
+        </nav>
+    
+        {% block content %}
+    
+    
+        {% endblock %}
 
 
+        <footer class="footer">
+            <p><small>© 2021 DontWait</small></p>
+        </footer>
 
-    </body>
+    </div>
 
 
-    <style>
 
-        @font-face{
-            font-family: gilroy;
-            src: url("{% static 'home/fonts/Gilroy-Bold.woff' %}");
+
+</body>
+
+
+<style>
+
+    @font-face{
+        font-family: gilroy;
+        src: url("{% static 'home/fonts/Gilroy-Bold.woff' %}");
+    }
+
+
+
+    #home-text{
+        color: inherit;
+    }
+
+    a, a:hover{
+        color: inherit;
+        text-decoration: none;
+    }
+
+    
+    .flex-column{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .nav{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav-item__right{
+        margin: 20px;
+        margin-bottom: 0px;
+        padding: 0;
+        margin-left: auto;
+        font-size: 2rem;
+    }
+
+    .no-space{
+        margin: 0;
+    }
+
+
+    .footer{
+        margin-top: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    h1{
+        font-size: 4em;
+    }
+
+    h2 {
+        font-size: 3em;
+    }
+
+    html, body{
+        height: 100%;
+        margin: 0;
+    }
+
+    body{
+        color: white;
+        font-family: gilroy;
+        animation: bg-animation 15s infinite;
+    }
+
+
+
+    @keyframes bg-animation {
+        0% {
+            background-color: #EC9F20;
+        }
+        25% {
+            background-color: #7B9BAC;
+        }
+        50% {
+            background-color: #9C4549;
+        }
+        75% {
+            background-color: #212838;
+        }
+        100% {
+            background-color: #EC9F20;
         }
 
+    }
 
 
-        #home-text{
-            color: inherit;
-        }
+</style>
 
-        a, a:hover{
-            color: inherit;
-            text-decoration: none;
-        }
+<style>
 
-        
-        .flex-column{
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+    .centered{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+</style>
 
-        .nav{
-            display: flex;
-            flex-direction: row;
-        }
 
+
+<style>
+    @media screen and (max-width: 768px) {
         .nav-item__right{
-            margin: 0;
-            padding: 0;
-            margin-left: auto;
-            font-size: 2rem;
+            font-size: 1rem;
         }
-
-        .no-space{
-            margin: 0;
-        }
+    }   
+</style>
 
 
-        .footer{
-            margin-top: auto;
-            display: flex;
-            justify-content: center;
-        }
-
-
-        h1{
-            font-size: 4em;
-        }
-
-        h2 {
-            font-size: 3em;
-        }
-
-        body{
-            color: white;
-            font-family: gilroy;
-            animation: bg-animation 15s infinite;
-        }
-
-
-        @keyframes bg-animation {
-            0% {
-                background-color: #EC9F20;
-            }
-            25% {
-                background-color: #7B9BAC;
-            }
-            50% {
-                background-color: #9C4549;
-            }
-            75% {
-                background-color: #212838;
-            }
-            100% {
-                background-color: #EC9F20;
-            }
-
-        }
-
-
-    </style>
-
-    <style>
-        .centered{
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-    </style>
-
+</body>
 </html>

@@ -7,7 +7,7 @@
     <div class="centered">
         <div class="input-section">
             {% if court.occupied %}
-                <h1>Whoops, this court is already in play!</h1>
+                <h1>Court already in play.</h1>
                 <a href="{% url 'home' %}">Find an empty one</a>
             {% else %}
                 <h1>How long will you be playing at {{court.name}}?</h1>
