@@ -29,3 +29,12 @@ class Court(models.Model):
 
     def get_unix(self):
         return int(self.booked.timestamp())
+
+class Access(models.Model):
+    ip = models.CharField(max_length=15)
+    access_time = models.DateTimeField(auto_now_add=True)
+    court = models.ForeignKey(Court, on_delete=models.PROTECT)
+    play_time = models.IntegerField()
+
+    def __repr__(self) -> str:
+        return f"< Access: {self.access_time} >"
