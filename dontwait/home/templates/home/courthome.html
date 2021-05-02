@@ -6,10 +6,10 @@
 
 <div class="centered">
     <h1 class="no-space">{{ court.name }}</h1>
-    <a href=" http://maps.google.com/?q={{court.adress}}" target="_blank"><h3>Directions</h3></a>
+    <a href=" http://maps.google.com/?q={{court.adress}}" class="underline" target="_blank"><h3>Directions</h3></a>
 
     {% if court.occupied %}
-        <h1 id="time-left"></h1>
+        <h2 id="time-left"></h2>
         <h3 id="">Booked until: <span id="date-left">{{ court.booked }}</span></h3>
 
         <script>
@@ -54,11 +54,23 @@
         </script>
 
     {% else %}
-        <h1>Not Currently in Play 🙌</h1>
+        <h2>Not Currently in Play 🙌</h2>
     {% endif %}
+
+    <a href="{% url 'about' %}" class="underline"><small>What's dontwait?</small></a>
 
 </div>
 
+
+<style>
+
+    @media screen and (max-width: 768px) {
+
+
+
+    }
+
+</style>
 
 
 

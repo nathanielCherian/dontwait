@@ -5,25 +5,32 @@
 {% block content %}
 
     <div class="centered">
+
         <div class="input-section">
             {% if court.occupied %}
                 <h1>Court already in play.</h1>
                 <a href="{% url 'home' %}">Find an empty one</a>
             {% else %}
-                <h1>How long will you be playing at {{court.name}}?</h1>
+                <h2>How long will you be playing at {{court.name}}?</h2>
                 <h2><span id="selected-time"></span> mins</h2>
                 <input type="range" min="15" max="{{ court.maxtime }}" value="30" step="5" id="time-selector">
                 <input type="submit" id="submit-time">
             {% endif %}
-        </div>
+        </div> 
 
-        <div class="success-section" style="display: none;">
+        <div class="success-section" style="display: none">
             <h1>Thanks for your input! 😊</h1>
+
+            <p>Save <a href="{% url 'chome' court_slug='101' %}" class="underline">this page</a> to check the status of a court before you come!</p>
+
+            <a href="{% url 'about' %}" class="underline"><small>What's dontwait?</small></a>
+
         </div>
 
         <div class="error-section" style="display: none;">
             <h1>Whoops something went wrong. 😔</h1>
         </div>
+
 
     </div>
 
@@ -49,6 +56,7 @@
                 data: {time},
                 success: function(){
                     console.log("success")
+                    history.replaceState(null, '', '/101');
                     $(".input-section").hide();
                     $(".success-section").show();
                 },
@@ -84,6 +92,7 @@
             cursor: pointer;
             outline: none;
         }
+
 
     </style>
 

@@ -26,6 +26,9 @@ class Court(models.Model):
             return False
         return True
 
+    def getLocalTime(self):
+        raise Exception("not implemented")
+
 
     def get_unix(self):
         return int(self.booked.timestamp())
