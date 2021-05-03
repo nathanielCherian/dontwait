@@ -18,7 +18,7 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns+= [
         path("<slug:court_slug>/reset", views.reset_time, name="reset"),
-        path("sticker/", views.sticker, name="sticker"),
+        path("sticker/<slug:sg>", views.sticker, name="sticker"),
     ]
 
 handler404 = views.handler404

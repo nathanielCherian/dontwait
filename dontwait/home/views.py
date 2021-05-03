@@ -9,24 +9,22 @@ import json
 from .models import Court, Access
 
 def home(request):
-    return render(request, 'home/home.html')
+    return render(request, 'home/home.html', {"title":"home",})
 
 def about(request):
-    return render(request, "home/about.html")
+    return render(request, "home/about.html", {"title":"about",})
 
-def sticker(request):
-    return render(request, "sticker.html")
-
+def sticker(request, sg):
+    return render(request, "sticker.html",{"slug":sg})
 
 #Conditional renders
 def court_home(request, court_slug):
     court = get_object_or_404(Court, slug=court_slug)
-    return render(request, 'home/courthome.html', {"court":court})
+    return render(request, 'home/courthome.html', {"court":court, "title":court.name})
 
 def court_claim(request, court_slug):
     court = get_object_or_404(Court, slug=court_slug)
-
-    return render(request, 'home/courtclaim.html', {"court":court,})
+    return render(request, 'home/courtclaim.html', {"court":court, "title":court.name})
 
 @csrf_exempt
 def court_claim_api(request, court_slug):

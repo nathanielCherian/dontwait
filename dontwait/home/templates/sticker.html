@@ -4,6 +4,7 @@
 
     <head>
         <title>sticker</title>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     </head>
 
     <body>
@@ -16,8 +17,9 @@
             </div>
 
             <div class="row justify-content-center" style="text-align: center;">
-                <img src="{% static 'home/qr/102.svg' %}" width="250px" height="250px">
+                <div id="qrcode" style="text-align: center;"></div>
             </div>
+
 
             <div class="row justify-content-center" style="text-align: center;">
                 <h3>Point your camera here to hold the court</h3>
@@ -29,6 +31,15 @@
 
         </div>
 
+        <script type="text/javascript">
+
+            let URL = "https://dontwait.sylicia.com/{{ slug }}/claim";
+
+            new QRCode(document.getElementById("qrcode"), URL, {
+                width: 500,
+                height: 500,
+            });
+        </script>
 
 
         <style>
@@ -45,6 +56,18 @@
             h1{
                 font-size: 3rem;
             }
+
+            #qrcode{
+            }
+
+            img{
+                padding: 0 !important;
+                margin: 0px !important;
+                position: relative;
+                left: 50%;
+                transform: translate(-50%, 0px);
+            }
+            
 
         </style>
     </body>
